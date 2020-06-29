@@ -20,5 +20,6 @@ namespace Business.Constants
 		internal static string SuccessfulLogin = "Login successful";
 		internal static string UserAlreadyExists = "User already exist";
 		internal static string UserRegistrationSuccessful = "User registration succeeded";
+		internal static string AccessTokenCreated = "Access token has been created successfully";
 	}
 }
