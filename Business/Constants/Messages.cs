@@ -16,5 +16,9 @@ namespace Business.Constants
 		public static string CategoryUpdated = "The category has been updated successfully";
 
 		public static string UserNotFound = "User not found";
+		internal static string PasswordError = "Incorrect password";
+		internal static string SuccessfulLogin = "Login successful";
+		internal static string UserAlreadyExists = "User already exist";
+		internal static string UserRegistrationSuccessful = "User registration succeeded";
 	}
 }
