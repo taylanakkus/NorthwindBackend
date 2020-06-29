@@ -1,9 +1,6 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DataAccess.Concrete
+namespace Entities.Concrete
 {
 	public class Product : IEntity
 	{

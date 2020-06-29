@@ -11,27 +11,17 @@ namespace WebAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class ProductsController : ControllerBase
+	public class CategoriesController : ControllerBase
 	{
-		private IProductService _productService;
-		public ProductsController(IProductService productService)
+		ICategoryService _categoryService;
+		public CategoriesController(ICategoryService categoryService)
 		{
-			_productService = productService;
+			_categoryService = categoryService;
 		}
 		[HttpGet("getall")]
 		public IActionResult GetList()
 		{
-			var result = _productService.GetList();
-			if (result.Success)
-			{
-				return Ok(result.Data);
-			}
-			return BadRequest(result.Message);
-		}
-		[HttpGet("getbycategory")]
-		public IActionResult GetListByCategory(int categoryId)
-		{
-			var result = _productService.GetListByCategory(categoryId);
+			var result = _categoryService.GetList();
 			if (result.Success)
 			{
 				return Ok(result.Data);
@@ -39,9 +29,9 @@ namespace WebAPI.Controllers
 			return BadRequest(result.Message);
 		}
 		[HttpGet("getbyid")]
-		public IActionResult GetById(int productId)
+		public IActionResult GetById(int categoryId)
 		{
-			var result = _productService.GetById(productId);
+			var result = _categoryService.GetById(categoryId);
 			if (result.Success)
 			{
 				return Ok(result.Data);
@@ -49,39 +39,34 @@ namespace WebAPI.Controllers
 			return BadRequest(result.Message);
 		}
 		[HttpPost("add")]
-		public IActionResult Add(Product product)
+		public IActionResult Add(Category category)
 		{
-			var result = _productService.Add(product);
+			var result = _categoryService.Add(category);
 			if (result.Success)
 			{
 				return Ok(result.Message);
 			}
-
 			return BadRequest(result.Message);
 		}
 		[HttpPatch("update")]
-		public IActionResult Update(Product product)
+		public IActionResult Update(Category category)
 		{
-			var result = _productService.Update(product);
+			var result = _categoryService.Update(category);
 			if (result.Success)
 			{
 				return Ok(result.Message);
 			}
-
 			return BadRequest(result.Message);
 		}
 		[HttpDelete("delete")]
-		public IActionResult Delete(Product product)
+		public IActionResult Delete(Category category)
 		{
-			var result = _productService.Delete(product);
+			var result = _categoryService.Delete(category);
 			if (result.Success)
 			{
 				return Ok(result.Message);
 			}
-
 			return BadRequest(result.Message);
 		}
-
-
 	}
 }
