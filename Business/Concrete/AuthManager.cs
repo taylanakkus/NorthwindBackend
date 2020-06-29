@@ -37,16 +37,10 @@ namespace Business.Concrete
 			return new SuccessDataResult<User>(Messages.SuccessfulLogin);
 		}
 
-		public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
+		public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
 		{
-			var emailCheck = UserExists(userForRegisterDto.Email);
-			if (!emailCheck.Success)
-			{
-				return (IDataResult<User>)emailCheck;
-			}
-
 			byte[] passwordHash, passwordSalt;
-			HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+			HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
 			var user = new User
 			{
 				Email = userForRegisterDto.Email,
