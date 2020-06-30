@@ -34,7 +34,7 @@ namespace Business.Concrete
 				return new ErrorDataResult<User>(Messages.PasswordError);
 			}
 
-			return new SuccessDataResult<User>(Messages.SuccessfulLogin);
+			return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
 		}
 
 		public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)

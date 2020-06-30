@@ -35,7 +35,7 @@ namespace WebAPI.Controllers
 		public ActionResult Register(UserForRegisterDto userForRegisterDto)
 		{
 			var userExists = _authservice.UserExists(userForRegisterDto.Email);
-			if (userExists.Success)
+			if (!userExists.Success)
 			{
 				return BadRequest(userExists.Message);
 			}
