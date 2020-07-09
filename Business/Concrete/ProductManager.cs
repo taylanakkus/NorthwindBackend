@@ -2,6 +2,7 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.AutoFac.Validation;
+using Core.Utilities.Aspects.AutoFac.Caching;
 using Core.Utilities.Aspects.AutoFac.Transaction;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -45,7 +46,7 @@ namespace Business.Concrete
 		{
 			return new SuccessDataResult<List<Product>>(_productDal.GetList().ToList());
 		}
-
+		[CacheAspect(duration: 1)]
 		public IDataResult<List<Product>> GetListByCategory(int categoryById)
 		{
 			return new SuccessDataResult<List<Product>>(_productDal.GetList(p => p.CategoryId == categoryById).ToList());
