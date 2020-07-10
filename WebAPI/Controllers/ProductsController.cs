@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Business.Abstract;
+﻿using Business.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -20,7 +14,6 @@ namespace WebAPI.Controllers
 			_productService = productService;
 		}
 		[HttpGet("getall")]
-		[Authorize(Roles = "Product.List")]
 		public IActionResult GetList()
 		{
 			var result = _productService.GetList();
