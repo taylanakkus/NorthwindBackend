@@ -1,6 +1,7 @@
 ﻿using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -16,10 +17,13 @@ namespace Business.Constants
 		public static string CategoryUpdated = "The category has been updated successfully";
 
 		public static string UserNotFound = "User not found";
-		internal static string PasswordError = "Incorrect password";
-		internal static string SuccessfulLogin = "Login successful";
-		internal static string UserAlreadyExists = "User already exist";
-		internal static string UserRegistrationSuccessful = "User registration succeeded";
-		internal static string AccessTokenCreated = "Access token has been created successfully";
+		public static string PasswordError = "Incorrect password";
+		public static string SuccessfulLogin = "Login successful";
+		public static string UserAlreadyExists = "User already exist";
+		public static string UserRegistrationSuccessful = "User registration succeeded";
+		public static string AccessTokenCreated = "Access token has been created successfully";
+
+		public static string AuthorizationDenied = "Do not have authorization claim";
+
 	}
 }
