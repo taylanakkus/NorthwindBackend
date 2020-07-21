@@ -1,5 +1,5 @@
 using Core.Extensions;
-using Core.Utilities.DependencyResolvers;
+using Core.DependencyResolvers;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.Jwt;
@@ -80,7 +80,9 @@ namespace WebAPI
 			app.UseCors(
 			  builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader()
 			  );
+
 			app.UseSwagger();
+
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger");
